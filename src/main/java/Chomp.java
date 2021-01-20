@@ -13,9 +13,19 @@ public class Chomp
     // Returns false if it was an invalid move (either out of bounds
     // or given food was already eaten)
     public static boolean eat(char[][] board, int row, int col)
-    {        
-        // YOUR CODE HERE
-        return false;
+    {
+        if (row > board.length || col > board[0].length) {
+            return false;
+        }
+        for (int i = row; i < board.length; i++) {
+            for (int j = col; j < board[0].length; j++) {
+                if (board[i][j] == ' ') {
+                    return false;
+                }
+                board[i][j] = ' ';
+            }
+        }
+        return true;
     }
     
     public static void printBoard(char[][] board)
